@@ -24,9 +24,12 @@ select * from ADDRESS_BOOKS;
 --UC4 Ability to edit existing contact person using their name----
 USE ADDRESS_BOOK;
 update ADDRESS_BOOKS set City='MUMBAI' where FirstName='Hero' and LastName='NAN';
-select * from Address_Book;
+select * from ADDRESS_BOOKS
 --UC5 Ability to delete existing contact person using their name----
 
 USE ADDRESS_BOOK;
 DELETE  FROM ADDRESS_BOOKS where FirstName='Hero' and LastName='NAN';
-select * from Address_Book;
+select * from ADDRESS_BOOKS
+--UC6 Ability to FIND existing contact person using their STATE----
+USE ADDRESS_BOOK;
+select * from ADDRESS_BOOKS WHERE City='PUNE' ORDER BY FirstName+LastName
