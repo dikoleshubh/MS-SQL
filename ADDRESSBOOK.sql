@@ -33,3 +33,37 @@ select * from ADDRESS_BOOKS
 --UC6 Ability to FIND existing contact person using their STATE----
 USE ADDRESS_BOOK;
 select * from ADDRESS_BOOKS WHERE City='PUNE' ORDER BY FirstName+LastName
+--UC7 Ability to understand the size of address book by City and State
+
+use  ADDRESS_BOOK;
+
+-- displaying the count of contacts by city
+ select City,count(*) as 'Number of Contacts'
+  from ADDRESS_BOOKS;
+  group by City;
+ --displaying the count of contacts by state
+ select State,count(*) as 'Number of Contacts'
+  from ADDRESS_BOOKS 
+  group by State;
+
+--UC8 Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+
+use ADDRESS_BOOK;
+--Retrieve entries sorted alphabetically by name for PUNE
+select * from  ADDRESS_BOOKS where City='PUNE' order by FirstName+LastName; 
+--UC9 Ability to identify each Address Book with name and Type
+use ADDRESS_BOOK;
+select * from ADDRESS_BOOKS;
+--Altering address_book to add new columns
+alter table Address_Book add addressBookType varchar(30), addressBookName varchar(40);
+
+update ADDRESS_BOOKS set ADDRESS_BOOKSType = 'SADASHIV PETH' where City ='MUMBAI';
+update ADDRESS_BOOKS set ADDRESS_BOOKSName = 'PROFILES';
+update ADDRESS_BOOKS set ADDRESS_BOOKSType = 'PERSON' where LastName ='CONAN';
+update ADDRESS_BOOKS set ADDRESS_BOOKSType = 'Profession' where ADDRESS_BOOKSType is null;
+use ADDRESS_BOOK;
+--Adding the same person to both friend and family types
+insert into ADDRESS_BOOKS(FirstName,LastName,Address,City,State,Zip,PhoneNo,Email,addressBookType,addressBookName)
+values('RWER', 'YWES','Sec-6','DGYR', 'DASDG', 214566,954646554333, 'ASDCa@gmail.com','PERSON','PROFILES');
+--Retrieving details of the duplicated contact
+select * from ADDRESS_BOOKS where FirstName='RWER' and LastName='YWES';
