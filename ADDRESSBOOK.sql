@@ -22,6 +22,11 @@ INSERT INTO ADDRESS_BOOKS (FirstName,LastName,Address,City,State,Zip,PhoneNo,Ema
 select * from ADDRESS_BOOKS;
 
 --UC4 Ability to edit existing contact person using their name----
-use AddressBook_System;
-update Address_Book set City='MUMBAI' where FirstName='Hero' and LastName='NAN';
+USE ADDRESS_BOOK;
+update ADDRESS_BOOKS set City='MUMBAI' where FirstName='Hero' and LastName='NAN';
+select * from Address_Book;
+--UC5 Ability to delete existing contact person using their name----
+
+USE ADDRESS_BOOK;
+DELETE  FROM ADDRESS_BOOKS where FirstName='Hero' and LastName='NAN';
 select * from Address_Book;
